@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*
+body,
+app-root {
+  display: flex;
+  flex-direction: column;
+}
+*/
+ body {
+   margin: 0;
+ }
+
+.text-left {
+  text-align: left !important;
+}
+
+
+.text-right {
+  text-align: right !important;
+}
+
+.form {
+  margin-left: 15px;
+}
+
+.btn {
+  padding: 10px;
+  background-color: #F3D504;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #CDB400;
+}
+
+.toast-message-warning {
+  background-color: #F3D504 !important;
+}
+
+.toast-message-success {
+  background-color: #28A745 !important;
+}
+
+
+.toast-message-error {
+  background-color: #DD0031 !important;
+}
+
+.float-right {
+  float: right;
+}

@@ -1,0 +1,24 @@
+<div class="main-container">
+  <span class="title">Movimientos</span>
+  <div class="align-elements">
+    <input type="text" id="movimiento" class="margin-10" [(ngModel)]="movimientoToSearch"
+           (input)="onSearchValue($event)"/>
+    <button type="button" id="nuevo-movimiento" routerLink="./add" class="btn-nuevo-movimiento margin-10">Nuevo</button>
+  </div>
+  <div class="grid-container">
+    <div class="grid-item grid-header">Fecha</div>
+    <div class="grid-item grid-header">Cliente</div>
+    <div class="grid-item grid-header">Número de Cuenta</div>
+    <div class="grid-item grid-header">Valor</div>
+    <div class="grid-item grid-header">Saldo Disponible</div>
+    <ng-container *ngFor="let movimiento of displayedMovimientos">
+      <div class="row-wrapper grid-row" routerLink="./{{movimiento.movimientoId}}/edit">
+        <div class="grid-item">{{movimiento.fecha | date: 'dd/MM/yyyy'}}</div>
+        <div class="grid-item text-left">{{movimiento.cliente}}</div>
+        <div class="grid-item text-left">{{movimiento.numeroCuenta}}</div>
+        <div class="grid-item text-right">{{movimiento.valor | currency}}</div>
+        <div class="grid-item text-right">{{movimiento.saldo | currency}}</div>
+      </div>
+    </ng-container>
+  </div>
+</div>

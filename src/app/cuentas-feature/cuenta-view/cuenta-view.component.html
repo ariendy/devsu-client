@@ -1,0 +1,23 @@
+<div class="main-container">
+  <span class="title"> Cuentas</span>
+  <div class="align-elements">
+    <input type="text" id="cuenta" class="margin-10" [(ngModel)]="clientToSearch" (input)="onSearchValue($event)"/>
+    <button type="button" id="nuevo-movimiento" routerLink="./add" class="btn-nueva-cuenta margin-10">Nuevo</button>
+  </div>
+  <div class="grid-container">
+    <div class="grid-item grid-header">Número de Cuenta</div>
+    <div class="grid-item grid-header">Tipo</div>
+    <div class="grid-item grid-header">Saldo Inicial</div>
+    <div class="grid-item grid-header">Estado</div>
+    <div class="grid-item grid-header">Cliente</div>
+    <ng-container *ngFor="let cuenta of displayedCuentas">
+      <div class="row-wrapper grid-row" routerLink="./{{cuenta.cuentaId}}/edit">
+        <div class="grid-item text-left">{{cuenta.numeroCuenta}}</div>
+        <div class="grid-item text-left">{{cuenta.tipoCuenta}}</div>
+        <div class="grid-item text-right">{{cuenta.saldoInicial  | currency}}</div>
+        <div class="grid-item">{{cuenta.estado ? 'True' : 'False'}}</div>
+        <div class="grid-item text-left">{{cuenta.cliente}}</div>
+      </div>
+    </ng-container>
+  </div>
+</div>

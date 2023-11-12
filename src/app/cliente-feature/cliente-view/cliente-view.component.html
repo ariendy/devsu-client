@@ -1,0 +1,23 @@
+<div class="main-container">
+  <span class="title"> Clientes</span>
+  <div class="align-elements">
+    <input type="text" id="cliente" class="margin-10" [(ngModel)]="clientToSearch" (input)="onSearchValue($event)"/>
+    <button type="button" id="nuevo-usuario" routerLink="./add" class="btn-nuevo-usuario margin-10">Nuevo</button>
+  </div>
+  <div class="grid-container">
+    <div class="grid-item grid-header">Nombre</div>
+    <div class="grid-item grid-header">Dirección</div>
+    <div class="grid-item grid-header">Teléfono</div>
+    <div class="grid-item grid-header">Contraseña</div>
+    <div class="grid-item grid-header">Estado</div>
+    <ng-container *ngFor="let usuario of displayedUsuarios">
+      <div class="row-wrapper grid-row" routerLink="./{{usuario.personaId}}/edit">
+        <div class="grid-item text-left">{{usuario.nombre}}</div>
+        <div class="grid-item text-left">{{usuario.direccion}}</div>
+        <div class="grid-item">{{usuario.telefono}}</div>
+        <div class="grid-item text-left">{{usuario.contrasenia}}</div>
+        <div class="grid-item">{{usuario.estado ? 'True' : 'False'}}</div>
+      </div>
+    </ng-container>
+  </div>
+</div>

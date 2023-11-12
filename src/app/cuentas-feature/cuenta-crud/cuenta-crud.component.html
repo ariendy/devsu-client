@@ -1,0 +1,51 @@
+<div class="main-container">
+  <form *ngIf="form" [formGroup]="form" class="form">
+    <div>
+      <div><label>Número de Cuenta: </label></div>
+      <div>
+        <input type="text" formControlName="numeroCuenta" id="numero-cuenta" size="20" maxlength="20"/>
+      </div>
+    </div>
+
+    <div>
+      <div><label>Tipo Cuenta: </label></div>
+      <div>
+        <select formControlName="tipoCuenta" id="tipo-cuenta">
+          <option value="Ahorro">Ahorro</option>
+          <option value="Corriente">Corriente</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <div><label>Cliente: </label></div>
+      <div>
+        <select formControlName="personaId" id="cliente">
+          <option *ngFor="let usuario of usuarios" value="{{usuario.personaId}}">{{usuario.nombre}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <div><label>Saldo: </label></div>
+      <div>
+        <input type="text" formControlName="saldoInicial" id="saldo-inicial"/>
+      </div>
+    </div>
+
+    <div>
+      <div><label>Estado: </label></div>
+      <div>
+        <input type="checkbox" formControlName="estado" id="estado"/>
+      </div>
+    </div>
+
+    <div class="buttons-grid-container">
+      <div class="items">
+        <button type="button" class="btn btn-guardar" (click)="guardarCuenta()">Guardar</button>
+        <button type="button" class="btn btn-cancelar" (click)="goBackToCuentas()">Cancelar</button>
+        <button type="button" class="btn btn-eliminar" *ngIf="id" (click)="deleteCuenta()">Eliminar</button>
+      </div>
+    </div>
+  </form>
+</div>

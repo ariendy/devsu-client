@@ -1,0 +1,71 @@
+<div class="main-container">
+  <form *ngIf="form" [formGroup]="form" class="form">
+    <div >
+      <div ><label>Identificación: </label></div>
+      <div class="col">
+        <input type="text" formControlName="identificacion" id="identificacion" size="20" maxlength="20"/>
+      </div>
+    </div>
+
+    <div>
+      <div><label>Nombres: </label></div>
+      <div>
+        <input type="text" formControlName="nombre" id="nombre" size="60" maxlength="120"/>
+      </div>
+    </div>
+
+    <div>
+      <div><label>Género: </label></div>
+      <div>
+        <select  formControlName="genero">
+          <option value="M">Masculino</option>
+          <option value="F">Feminino</option>
+        </select>
+      </div>
+
+      <div>
+        <div><label>Edad: </label></div>
+        <div>
+          <input type="number" formControlName="edad" id="edad" class="edad"/>
+        </div>
+      </div>
+
+      <div>
+        <div><label>Dirección: </label></div>
+        <div>
+          <input type="text" formControlName="direccion" id="direccion" size="60" maxlength="200"/>
+        </div>
+      </div>
+
+      <div>
+        <div><label>Teléfono: </label></div>
+        <div>
+          <input type="text" formControlName="telefono" id="telefono" size="15" maxlength="15"/>
+        </div>
+      </div>
+
+      <div>
+        <div><label>Contraseña: </label></div>
+        <div>
+          <input type="password" formControlName="contrasenia" id="contrasenia" size="20" maxlength="20"/>
+        </div>
+      </div>
+
+      <div>
+        <div><label>Estado: </label></div>
+        <div>
+          <input type="checkbox" formControlName="estado" id="estado"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons-grid-container">
+      <div class="items">
+        <button type="button" class="btn btn-guardar" (click)="guardarCliente()">Guardar</button>
+        <button type="button" class="btn btn-cancelar" (click)="goBackToCliente()">Cancelar</button>
+        <button type="button" class="btn btn-eliminar" *ngIf="id" (click)="deleteCliente()">Eliminar</button>
+      </div>
+    </div>
+
+  </form>
+</div>

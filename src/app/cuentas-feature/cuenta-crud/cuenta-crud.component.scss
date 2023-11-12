@@ -1,0 +1,39 @@
+.main-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.buttons-grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.buttons-grid-item {
+  border: 1px solid #DDD;
+  font-size: 14px;
+  text-align: center;
+  padding: 5px;
+}
+
+.btn-guardar {
+  margin-right: 10px;
+  background-color: #28A745;
+}
+
+.btn-guardar:hover {
+  margin-right: 10px;
+  background-color: #088625;
+}
+
+.btn-cancelar {
+  margin-right: 10px;
+}
+
+.btn-eliminar {
+  background-color: #DD0031;
+}
+
+.btn-eliminar:hover {
+  background-color: #BB022B;
+}

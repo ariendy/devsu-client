@@ -1,0 +1,36 @@
+<div class="main-container">
+  <span class="title">Reporte</span>
+  <div class="align-elements">
+    <div>
+      <span>
+        <label>Fecha inicio: </label>
+        <input type="date" id="start" class="margin-10 margin-left-5px" [(ngModel)]="start"/>
+      </span>
+      <span>
+        <label class="margin-left-5px">Fecha fin: </label>
+        <input type="date" id="end" class="margin-10 margin-left-5px" [(ngModel)]="end"/>
+      </span>
+    </div>
+    <div class="float-right">
+      <span>
+        <button type="button" id="buscar" (click)="buscarMovimientos()" class="btn margin-10">Buscar</button>
+        <button type="button" id="report-pdf" (click)="printPDF()" class="btn margin-10 margin-left-5px">Generar PDF</button>
+        <button type="button" id="report-json" (click)="downloadJSON()" class="btn margin-10 margin-left-5px">Descargar JSON</button>
+      </span>
+    </div>
+  </div>
+  <div class="grid-container">
+    <div class="grid-item grid-header">Fecha</div>
+    <div class="grid-item grid-header">Cliente</div>
+    <div class="grid-item grid-header">Número de Cuenta</div>
+    <div class="grid-item grid-header">Valor</div>
+    <div class="grid-item grid-header">Saldo Disponible</div>
+    <ng-container *ngFor="let movimiento of movimientos">
+      <div class="grid-item">{{movimiento.fecha | date: 'dd/MM/yyyy'}}</div>
+      <div class="grid-item text-left">{{movimiento.cliente}}</div>
+      <div class="grid-item text-left">{{movimiento.numeroCuenta}}</div>
+      <div class="grid-item text-right">{{movimiento.valor | currency}}</div>
+      <div class="grid-item text-right">{{movimiento.saldo | currency}}</div>
+    </ng-container>
+  </div>
+</div>
